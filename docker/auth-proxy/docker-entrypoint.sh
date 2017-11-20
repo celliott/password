@@ -2,7 +2,10 @@
 set -e
 
 AUTH_USER=${AUTH_USER:-'admin'}
-AUTH_PASS=${AUTH_PASS:-'password'}
+if [ -z "$AUTH_PASS" ]; then
+  echo "AUTH_PASS must be set"
+  exit 10
+fi
 
 htpasswd -b -c /etc/nginx/.htpasswd $AUTH_USER $AUTH_PASS
 
