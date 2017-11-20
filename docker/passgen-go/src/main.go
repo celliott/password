@@ -1,9 +1,9 @@
 package main
 
 import (
-    "io"
-    "crypto/rand"
-    "github.com/gin-gonic/gin"
+  "io"
+  "crypto/rand"
+  "github.com/gin-gonic/gin"
 )
 
 func new_password(length int) string {
@@ -32,17 +32,17 @@ func new_password(length int) string {
 }
 
 func main() {
-	r := gin.Default()
+  r := gin.Default()
 
-	r.GET("/", func(c *gin.Context) {
+  r.GET("/", func(c *gin.Context) {
     c.Data(200, "application/json; charset=utf-8", []byte(new_password(20)))
-	})
+  })
 
   r.GET("/json", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"password": new_password(20),
-		})
-	})
+    c.JSON(200, gin.H{
+      "password": new_password(20),
+    })
+  })
 
-	r.Run(":3000")
+  r.Run(":3000")
 }
