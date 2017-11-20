@@ -1,0 +1,29 @@
+version: "3"
+services:
+  auth-proxy:
+    build: ./docker/auth-proxy
+    image: ${ORGANIZATION}/auth-proxy:latest
+    restart: always
+    environment:
+      - AUTH_USER=${AUTH_USER}
+      - AUTH_PASS=${AUTH_PASS}
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - core
+
+  passgen-go:
+    build: ./docker/passgen-go
+    image: ${ORGANIZATION}/${CONTAINER}:latest
+    container_name: ${CONTAINER}
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - core
+    labels:
+      - "traefik.backend=passgengo"
+      - "traefik.frontend.rule=Host:passgengo.docker.localhost"
+networks:
+    core:
