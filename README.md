@@ -1,5 +1,8 @@
-# passgengo
+# passgen-go
 A repo for a http GO password generator
+
+# Next Steps
+* Add letsencrypt support
 
 ## Requirements
 * [Docker for Mac](https://www.docker.com/docker-mac)
@@ -21,7 +24,7 @@ $ make up
 ```
 $ make get-pass
 # or
-$ curl http://$AUTH_USER:$AUTH_PASS@127.0.0.1
+$ curl http://admin:$AUTH_PASS@127.0.0.1
 HiEN-l0Dz-VQ8b-QdLu
 ```
 
@@ -30,7 +33,7 @@ HiEN-l0Dz-VQ8b-QdLu
 ```
 $ make get-json
 # or
-$ curl http://$AUTH_USER:$AUTH_PASS@127.0.0.1/json
+$ curl http://admin:$AUTH_PASS@127.0.0.1/json
 {
   "password": "HiEN-l0Dz-VQ8b-QdLu"
 }
