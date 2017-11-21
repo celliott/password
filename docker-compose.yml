@@ -13,8 +13,8 @@ services:
     networks:
       - core
 
-  passgen-go:
-    build: ./docker/passgen-go
+  password:
+    build: ./docker/password
     image: ${ORGANIZATION}/${CONTAINER}:latest
     container_name: ${CONTAINER}
     restart: always
@@ -23,7 +23,7 @@ services:
     networks:
       - core
     labels:
-      - "traefik.backend=passgengo"
-      - "traefik.frontend.rule=Host:passgengo.docker.localhost"
+      - "traefik.backend=password"
+      - "traefik.frontend.rule=Host:password.docker.localhost"
 networks:
     core:

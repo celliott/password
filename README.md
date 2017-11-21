@@ -1,5 +1,5 @@
-# passgen-go
-A repo for a http GO password generator
+# password
+A repo for a go http password generator
 
 # Next Steps
 * Add letsencrypt support
