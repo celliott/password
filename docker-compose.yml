@@ -1,5 +1,17 @@
 version: "3"
 services:
+  certbot:
+    image: ${ORGANIZATION}/${CONTAINER}:${BUILD_TAG}
+    container_name: ${CONTAINER}
+    environment:
+      - DOMAIN=${DOMAIN}
+      - EMAIL=${EMAIL}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - letsencrypt:/etc/letsencrypt
+
   auth-proxy:
     build: ./docker/auth-proxy
     image: ${ORGANIZATION}/auth-proxy:latest
@@ -13,7 +25,7 @@ services:
     networks:
       - overlay
     volumes:
-      - /data/certs:/etc/letsencrypt
+      - letsencrypt:/etc/letsencrypt
 
   password:
     build: ./docker/password
@@ -24,6 +36,9 @@ services:
       - "3000:3000"
     networks:
       - overlay
+
+volumes:
+  letsencrypt:
 
 networks:
     overlay:

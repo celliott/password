@@ -5,7 +5,10 @@ COPY ./src .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o password .
 
 FROM alpine:latest
-RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
+RUN apk update && \
+  apk add ca-certificates && \
+  rm -rf /var/cache/apk/*
+
 WORKDIR /root/
 COPY --from=builder /go/src/github.com/celliott/password/password .
 
