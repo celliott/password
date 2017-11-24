@@ -11,7 +11,9 @@ services:
       - "80:80"
       - "443:443"
     networks:
-      - core
+      - overlay
+    volumes:
+      - /data/certs:/etc/letsencrypt
 
   password:
     build: ./docker/password
@@ -21,9 +23,7 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - core
-    labels:
-      - "traefik.backend=password"
-      - "traefik.frontend.rule=Host:password.docker.localhost"
+      - overlay
+
 networks:
-    core:
+    overlay:

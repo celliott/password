@@ -11,6 +11,7 @@ RUN apk update && \
 # Add nginx config.
 COPY config/nginx.conf /etc/nginx/nginx.conf
 COPY config/default.conf /etc/nginx/conf.d/default.conf
+COPY config/ssl.conf /etc/nginx/snippets/ssl.conf
 RUN mkdir -p /run/nginx
 
 # Add docker-entrypoint.sh
