@@ -13,7 +13,7 @@ services:
     networks:
       - overlay
     volumes:
-      - /data/letsencrypt:/etc/letsencrypt
+      - /data/certbot:/etc/letsencrypt
 
   password:
     build: ./docker/password
