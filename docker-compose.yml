@@ -2,7 +2,6 @@ version: "3"
 services:
   certbot:
     image: ${ORGANIZATION}/${CONTAINER}:${BUILD_TAG}
-    container_name: ${CONTAINER}
     environment:
       - DOMAIN=${DOMAIN}
       - EMAIL=${EMAIL}
