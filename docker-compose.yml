@@ -5,6 +5,8 @@ services:
     image: ${ORGANIZATION}/auth-proxy:${BUILD_TAG}
     restart: always
     environment:
+      - DOMAIN=${DOMAIN}
+      - EMAIL=${EMAIL}
       - AUTH_USER=${AUTH_USER}
       - AUTH_PASS=${AUTH_PASS}
     ports:
@@ -12,8 +14,6 @@ services:
       - "443:443"
     networks:
       - overlay
-    volumes:
-      - /data/certbot:/etc/letsencrypt
 
   password:
     build: ./docker/password

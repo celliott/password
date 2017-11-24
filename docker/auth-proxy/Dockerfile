@@ -6,6 +6,7 @@ RUN apk update && \
     ca-certificates \
     nginx \
     apache2-utils \
+    certbot \
   && rm -rf /var/cache/apk/*
 
 # Add nginx config.
