@@ -14,7 +14,7 @@ services:
 
   auth-proxy:
     build: ./docker/auth-proxy
-    image: ${ORGANIZATION}/auth-proxy:latest
+    image: ${ORGANIZATION}/auth-proxy:${BUILD_TAG}
     restart: always
     environment:
       - AUTH_USER=${AUTH_USER}
@@ -29,7 +29,7 @@ services:
 
   password:
     build: ./docker/password
-    image: ${ORGANIZATION}/${CONTAINER}:latest
+    image: ${ORGANIZATION}/${CONTAINER}:${BUILD_TAG}
     container_name: ${CONTAINER}
     restart: always
     ports:
