@@ -1,18 +1,13 @@
 # password
 A repo for a go http password generator
 
-# Next Steps
-* Add letsencrypt support
-
 ## Requirements
 * [Docker for Mac](https://www.docker.com/docker-mac)
 
 ## Usage
-* Update AUTH_USER and AUTH_PASS in .env
 * Build and run container
 
 ```
-$ export AUTH_PASS=<auth_pass>
 $ make build
 $ make up
 ```
@@ -24,7 +19,7 @@ $ make up
 ```
 $ make get-pass
 # or
-$ curl http://admin:$AUTH_PASS@127.0.0.1
+$ curl http://127.0.0.1
 HiEN-l0Dz-VQ8b-QdLu
 ```
 
@@ -33,7 +28,7 @@ HiEN-l0Dz-VQ8b-QdLu
 ```
 $ make get-json
 # or
-$ curl http://admin:$AUTH_PASS@127.0.0.1/json
+$ curl http://127.0.0.1/json
 {
   "password": "HiEN-l0Dz-VQ8b-QdLu"
 }

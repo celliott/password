@@ -7,8 +7,6 @@ import (
   "github.com/gin-gonic/gin"
 )
 
-
-
 func newPassword(length int) string {
   chars := []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789")
   //dash := byte('-')

@@ -1,7 +1,6 @@
 include .env
-export
 
-.PHONY: up
+export
 
 set-pass :
 	@if [ -z $(AUTH_PASS) ]; then \
