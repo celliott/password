@@ -1,6 +1,5 @@
 version: "3"
 services:
-  auth-proxy:
   password:
     build: ./docker/${CONTAINER}
     image: ${ORGANIZATION}/${CONTAINER}:${BUILD_TAG}
@@ -8,8 +7,3 @@ services:
     restart: always
     ports:
       - "3000:3000"
-    networks:
-      - overlay
-
-networks:
-    overlay:
