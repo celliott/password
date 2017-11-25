@@ -2,18 +2,16 @@ include .env
 
 export
 
-set-pass :
-	@if [ -z $(AUTH_PASS) ]; then \
-		echo "AUTH_PASS must be set"; exit 10; \
-	fi
-
 validate :
 	docker-compose config --quiet
 
-build : validate set-pass
+build : validate
 	docker-compose build
 
-up : set-pass
+push :
+	docker-compose push
+
+up :
 	docker-compose up -d
 
 down :
@@ -28,7 +26,7 @@ shell :
 reset : set-pass down up
 
 get-pass :
-	@curl http://$(AUTH_USER):$(AUTH_PASS)@127.0.0.1
+	curl http://$(AUTH_USER):$(AUTH_PASS)@127.0.0.1
 
 get-json :
-	@curl http://$(AUTH_USER):$(AUTH_PASS)@127.0.0.1/json
+	curl http://$(AUTH_USER):$(AUTH_PASS)@127.0.0.1/json

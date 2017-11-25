@@ -9,7 +9,6 @@ import (
 
 func newPassword(length int) string {
   chars := []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789")
-  //dash := byte('-')
   new_pass := make([]byte, length)
   random_data := make([]byte, length+(length/4))
   count := byte(len(chars))
