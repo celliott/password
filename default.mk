@@ -4,4 +4,5 @@ CONTAINER=password
 BUILD_TAG ?= latest
 
 # Password ENVs
-PASSWORD_SERVICE_NAME=password
+SERVICE=password
+DOMAIN=toobox.io

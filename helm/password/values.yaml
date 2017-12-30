@@ -1,0 +1,17 @@
+replicaCount: 3
+
+image:
+  repository: celliott/password
+  tag: latest
+  pullPolicy: IfNotPresent
+service:
+  name: password
+  type: ClusterIP
+  externalPort: 3000
+  internalPort: 3000
+ingress:
+  enabled: false
+  hostname:
+  tls:
+    enabled: true
+resources: {}

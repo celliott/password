@@ -1,0 +1,12 @@
+apiVersion: v1
+description: A Helm chart for running password in Kubernetes
+name: password
+version: 0.1.0
+keywords:
+- kubernetes deployment
+- helm release
+- password
+sources:
+- https://github.com/celliott/password
+maintainers:
+- name: celliott
