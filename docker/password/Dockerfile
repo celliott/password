@@ -1,15 +1,12 @@
-FROM golang:1.7.3 as builder
-WORKDIR /go/src/github.com/celliott/password/
-RUN go get -d -v github.com/gin-gonic/gin
-COPY ./src .
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o password .
+FROM python:2.7-alpine
+MAINTAINER chris elliott <ctelliott@gmail.com>
 
-FROM alpine:latest
-RUN apk update && \
-  apk add ca-certificates && \
-  rm -rf /var/cache/apk/*
+# install dependencies
+ADD ./requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
 
-WORKDIR /root/
-COPY --from=builder /go/src/github.com/celliott/password/password .
+# add password
+ADD ./src/password.py /opt/password.py
+RUN chmod +x /opt/password.py
 
-CMD ["./password"]
+CMD ["/opt/password.py"]

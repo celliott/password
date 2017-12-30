@@ -1,9 +1,11 @@
 replicaCount: 3
+vault:
+  address: http://vault-vault.vault:8200
 
 image:
   repository: celliott/password
-  tag: latest
-  pullPolicy: IfNotPresent
+  tag: python
+  pullPolicy: Always
 service:
   name: password
   type: ClusterIP
