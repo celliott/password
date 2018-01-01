@@ -7,7 +7,7 @@ validate :
 build : validate
 	docker-compose build
 
-push :
+push : build
 	docker-compose push
 
 up :
@@ -15,14 +15,6 @@ up :
 
 down :
 	docker-compose down
-
-tail :
-	docker tail -f $(CONTAINER)
-
-shell :
-	docker exec -ti $(CONTAINER) /bin/bash
-
-reset : set-pass down up
 
 get-pass :
 	curl http://$(AUTH_USER):$(AUTH_PASS)@127.0.0.1

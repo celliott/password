@@ -1,7 +1,7 @@
 # Docker ENVs
 ORGANIZATION=celliott
 CONTAINER=password
-BUILD_TAG ?= python
+BUILD_TAG ?= latest
 
 # Password ENVs
 SERVICE=password

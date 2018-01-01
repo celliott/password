@@ -1,10 +1,9 @@
 replicaCount: 3
 vault:
   address: http://vault-vault.vault:8200
-
 image:
   repository: celliott/password
-  tag: python
+  tag: latest
   pullPolicy: Always
 service:
   name: password
@@ -13,6 +12,7 @@ service:
   internalPort: 3000
 ingress:
   enabled: false
+  auth: https://auth.toobox.io
   hostname:
   tls:
     enabled: true

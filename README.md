@@ -1,5 +1,5 @@
 # password
-A repo for a go http password generator
+A container to a http password generator
 
 ## Requirements
 * [Docker for Mac](https://www.docker.com/docker-mac)
