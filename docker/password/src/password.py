@@ -37,7 +37,7 @@ def authenticate():
   'Login Required', 401,
   {'WWW-Authenticate': 'Basic realm="Login Required"'})
 
-def requires_auth(f):
+def auth(f):
   @wraps(f)
   def decorated(*args, **kwargs):
     auth = request.authorization
@@ -64,12 +64,12 @@ def healthz():
   return json.dumps({'status':'ok'}), 200, {'ContentType':'application/json'}
 
 @app.route('/', methods=['GET'])
-@requires_auth
+@auth
 def index():
   return get_password()
 
 @app.route('/json', methods=['GET'])
-@requires_auth
+@auth
 def get_json():
   return jsonify(
     password=get_password()
