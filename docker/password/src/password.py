@@ -64,12 +64,12 @@ def healthz():
   return json.dumps({'status':'ok'}), 200, {'ContentType':'application/json'}
 
 @app.route('/', methods=['GET'])
-@auth
+#@auth
 def index():
   return get_password()
 
 @app.route('/json', methods=['GET'])
-@auth
+#@auth
 def get_json():
   return jsonify(
     password=get_password()
