@@ -11,8 +11,8 @@ from functools import wraps
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
 
-block_size = os.getenv('BLOCK_SIZE', 4)
-blocks = os.getenv('BLOCKS', 4)
+block_size = os.getenv('BLOCK_SIZE', 6)
+blocks = os.getenv('BLOCKS', 3)
 port = os.getenv('PORT', 3000)
 debug = os.getenv('DEBUG', False)
 vault_addr = os.getenv('VAULT_ADDR', 'http://127.0.0.1:8200')
